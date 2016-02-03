@@ -39,7 +39,5 @@ docker run --rm -it -v $(pwd):/ansible/playbooks \
 Note: the Ansible Vault executable is embedded in this image. To use it, specify a different entrypoint:
 
 ```
-docker run --rm -it -v $(pwd):/ansible/playbooks \
-    --entrypoint ansible-vault \
-    philm/ansible_playbook encrypt FILENAME
+docker run --rm -it -v $(pwd):/ansible/playbooks --entrypoint ansible-vault philm/ansible_playbook encrypt FILENAME
 ```
