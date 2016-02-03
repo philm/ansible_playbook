@@ -3,17 +3,13 @@
 Executes ansible-playbook command against an externally mounted set of Ansible playbooks
 
 ```
-docker run --rm -it \
-  -v PATH_TO_LOCAL_PLAYBOOKS_DIR:/ansible/playbooks \
-  philm/ansible_playbook PLAYBOOK_FILE
+docker run --rm -it -v PATH_TO_LOCAL_PLAYBOOKS_DIR:/ansible/playbooks philm/ansible_playbook PLAYBOOK_FILE
 ```
 
 For example, assuming your project's structure follows [best practices](http://docs.ansible.com/ansible/playbooks_best_practices.html#directory-layout), the command to run ansible-playbook from the top-level directory would look like:
 
 ```
-docker run --rm -it \
-  -v $(pwd):/ansible/playbooks \
-  philm/ansible_playbook site.yml
+docker run --rm -it -v $(pwd):/ansible/playbooks philm/ansible_playbook site.yml
 ```
 
 Ansible playbook variables can simply be added after the playbook name.
