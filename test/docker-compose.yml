@@ -1,0 +1,17 @@
+target:
+  image: philm/ansible_target:ubuntu1404
+  container_name: ansible_target
+  expose:
+    - "22"
+  volumes:
+    - ~/.ssh/id_rsa.pub:/home/ubuntu/.ssh/authorized_keys
+  privileged: true
+
+test:
+  image: philm/ansible_playbook
+  links:
+    - target
+  volumes:
+    - ~/.ssh/id_rsa:/root/.ssh/id_rsa
+    - ~/.ssh/id_rsa.pub:/root/.ssh/id_rsa.pub
+    - .:/ansible/playbooks

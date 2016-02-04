@@ -1,0 +1,17 @@
+---
+- hosts: test
+  remote_user: ubuntu
+  become: yes
+  become_user: root
+
+  # sample tasks to ensure things *just work*
+  tasks:
+
+    - name: view current distro
+      shell: cat /etc/*-release
+      register: distro
+    - debug: var=distro
+
+    # perform an action that requires root access
+    - name: create user foo
+      user: name=foo
