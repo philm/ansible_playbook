@@ -1,5 +1,5 @@
 target:
-  image: philm/ansible_target:ubuntu1404
+  image: philm/ansible_target:latest
   container_name: ansible_target
   expose:
     - "22"
